@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>47Social</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/article_detail.css' %}">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="logo">
+				<h2><strong>47Social</strong></h2>
+			</div>
+			<ul class="navbar">
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li><a href="">Product</a></li>
+				<li><a href="">Pricing</a></li>
+				<li><a href="{% url 'signup' %}">Sign Up</a></li>
+			</ul>
+		</div>
+	</header>
+	<section class="article_detail_container">
+		<div class="container">
+			<div class="article_top_part">
+				<div class="top_part_left">
+					<h2>{{ article.title }}</h2>
+					<span>{{ article.date_posted }}</span>
+				</div>
+				<div class="top_part_right">
+					<img src="{{ article.header_img.url }}" class="article_detail_img">
+				</div>
+			</div>
+			<div class="article_bottom_part">
+				<p>
+					{{ article.body | safe }}
+				</p>
+				
+			</div>
+		</div>
+	</section>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>47Social</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="logo">
+				<h2><strong>47Social</strong></h2>
+			</div>
+			<ul class="navbar">
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li><a href="">Product</a></li>
+				<li><a href="">Pricing</a></li>
+				<li><a href="{% url 'signup' %}">Sign Up</a></li>
+			</ul>
+		</div>
+	</header>
+	<section class="main_signup_container">
+		<h2>Signup for account here</h2>
+		<div class="container">
+			<form class="actual_form" method="post" action="">
+				{% csrf_token %}
+				<div class="single_input">
+					<label>Username:</label>
+					<input type="text" name="username" placeholder="Enter a username">
+				</div>
+				<div class="single_input">
+					<label>Email:</label>
+					<input type="email" name="email" placeholder="Enter your email">
+				</div>
+				<div class="single_input">
+					<label>Password:</label>
+					<input type="password" name="password" placeholder="Enter a password">
+				</div>
+				<div class="single_input">
+					<label>Confirm Password:</label>
+					<input type="password" name="confirm_password" placeholder="Confirm your password">
+				</div>
+				<button class="signup_btn" type="submit">Sign Up</button>
+			</form>
+		</div>
+	</section>
+</body>
+</html>

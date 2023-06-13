@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>47Social</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<div class="logo">
+				<h2><strong>47Social</strong></h2>
+			</div>
+			<ul class="navbar">
+				<li><a href="{% url 'index' %}">Home</a></li>
+				<li><a href="">Product</a></li>
+				<li><a href="">Pricing</a></li>
+				<li><a href="{% url 'signup' %}">Sign Up</a></li>
+			</ul>
+		</div>
+	</header>
+	<section class="main_posts_container">
+		<h2>Latest posts to keep you informed</h2>
+		<div class="container">
+			{% for article in articles %}
+			<div class="post">
+				<div class="post_img_container">
+					<img src="{{ article.header_img.url }}" class="header_img">
+				</div>
+				<div class="post_content_container">
+					<h3>{{ article.title }}</h3>
+					<p>
+						{{ article.snippet }}
+					</p>
+					<button><a href="{% url 'article_detail' article.slug %}">Read More</a></button>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+</body>
+</html>
